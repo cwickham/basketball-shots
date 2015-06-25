@@ -14,7 +14,7 @@ shots_sum <- summarise(shots_df,
   prop_made = mean(result == "made"),
   avg_points = mean(points),
   total_points = sum(points))
-write.csv(shots_sum, file = "shots_sum.csv", row.names = TRUE)
+write.csv(shots_sum, file = "shots_sum.csv", row.names = FALSE)
 
 head(shots_sum)
 
