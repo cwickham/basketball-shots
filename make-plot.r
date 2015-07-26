@@ -32,3 +32,16 @@ table(subset(shots, x == 25 & y == 6)$type)
 
 ggplot(subset(shots_sum, !(x == 25 & y == 6)), aes(x, y)) +
   geom_point(aes(size = num_shots, colour = avg_points))
+
+ggplot(subset(shots_sum, !(x == 25 & y == 6)), aes(x, y)) + 
+  geom_point(aes(color = avg_points, size = num_shots)) +
+  ylim(0, 35) + 
+  scale_colour_distiller("Points", palette = "RdYlGn", trans = "reverse") +
+  scale_size("Attempts", trans = "sqrt", range = c(0.5, 10)) +
+  coord_equal() + 
+  theme_classic(18) +
+  theme(axis.ticks = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    axis.title = element_blank()) +
+  guides(color = "none", size = "none")
